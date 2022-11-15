@@ -1,0 +1,32 @@
+name: Java with Nexus Repository
+
+on:
+  push:
+    branches: ["master"]
+  pull-request:
+    branches: ["master"]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Build with Maven
+        run: mvn package --file pom.xml
+      - name: Nexus Repo Publish
+        uses: sonatype-nexus-community/nexus-repo-github-action@master
+        with:
+          serverUrl: http://81.68.137.146:8081/repository/maven-releases/
+          username: ${{ secrets.NEXUS_USERNAME }}
+          password: ${{ secrets.NEXUS_PASSWORD }}
+          format: maven2
+          repository: maven-releases
+          coordinates: groupId=com.mimiter
+          assets: extension=jar
+          filename: ./target/mgs-common-1.0.jar
