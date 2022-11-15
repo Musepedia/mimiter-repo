@@ -48,4 +48,4 @@
 </project>
 ```
 
-随后，运行`mvn deploy`即可（默认情况下，请通过Github Actions部署，不需要手动部署）。
+随后，运行`mvn deploy`即可~~（默认情况下，请通过Github Actions部署，不需要手动部署）~~。

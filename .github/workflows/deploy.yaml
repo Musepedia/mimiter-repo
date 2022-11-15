@@ -29,4 +29,4 @@ jobs:
           repository: maven-releases
           coordinates: groupId=com.mimiter
           assets: extension=jar
-          filename: ./target/mgs-common-1.0.jar
+          filename: ./mgs-common/target/mgs-common-1.0.jar
