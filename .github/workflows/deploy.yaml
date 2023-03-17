@@ -27,6 +27,6 @@ jobs:
           password: ${{ secrets.NEXUS_PASSWORD }}
           format: maven2
           repository: maven-releases
-          coordinates: groupId=com.mimiter
+          coordinates: groupId=com.mimiter artifactId=mimiter-repo version=1.0
           assets: extension=jar
-          filename: ./mgs-common/target/mgs-common-1.0.jar
+          filename: ./mgs-common/target/mgs-common-1.0.jar ./mgs-model/target/mgs-model-1.0.jar
